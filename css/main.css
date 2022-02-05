@@ -1,0 +1,63 @@
+:root {
+  /* color */
+  --color--white: white;
+  --color--login: #6EBA4C;
+  --color--black: black;
+
+  /* font size*/
+
+  --font--large: 2rem;
+  --font--
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h2 {
+  max-width: 3rem;
+  margin-right: 1rem;
+}
+header h2 img {
+  width: 100%;
+}
+
+header nav ul {
+  display: flex;
+}
+
+.menu__first {
+
+}
+
+.menu__first li {
+  padding: 8px 12px; 
+}
+
+.menu__last {
+}
+
+
+
+
+.footer__logo {
+  max-width: 150px;
+}
+
+.footer__logo img {
+  width: 100%;
+}
