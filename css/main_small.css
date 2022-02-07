@@ -1,0 +1,18 @@
+/* common */
+
+.summary__title {
+  font-size: 34px !important;
+}
+
+.summary__description {
+  font-size: 22px;
+}
+
+/* feature */
+
+.section--feature .tiles ul li {
+  width: 100%;
+  border-right: none;
+  border-bottom: 1px solid #e5e5e5;
+}
+
