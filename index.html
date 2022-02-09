@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <link rel="stylesheet" media="(max-width:1024px)" href="css/main_medium.css">
   <link rel="stylesheet" media="(max-width:768px)" href="css/main_small.css">
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0ca93abf48cae84d775f5075a692e9e1
+  "></script>
+
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTQIlxBn5AfKGvsfJiormAE1esN3fcCkg&callback=initMap" async defer></script> -->
   <script defer src="main.js"></script>
 </head>
@@ -155,6 +158,7 @@
           </div>
         </div>
         <div id="map"></div>
+        <div id="clickLatlng"></div>  
       </div>
     </section>
 
@@ -204,28 +208,56 @@
 
 
 
-  <!-- <script>
-function initMap() {
+  <script>
 
-// 위도(Latitude), 경도(Longitude)
-const myLatLng = {
-    lat: 37.782293,
-    lng: -122.391240
-};
+var mapContainer = document.getElementById('map');
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
 
-const map = new google.maps.Map(document.getElementById('map'), {
-    center: myLatLng,
-    scrollwheel: false,
-    zoom: 18
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+// 지도를 클릭한 위치에 표출할 마커입니다
+var marker = new kakao.maps.Marker({ 
+    // 지도 중심좌표에 마커를 생성합니다 
+    position: map.getCenter() 
+}); 
+// 지도에 마커를 표시합니다
+marker.setMap(map);
+
+// 지도에 클릭 이벤트를 등록합니다
+// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+    
+    // 클릭한 위도, 경도 정보를 가져옵니다 
+    var latlng = mouseEvent.latLng; 
+    
+    // 마커 위치를 클릭한 위치로 옮깁니다
+    marker.setPosition(latlng);
 });
 
-const marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'GitHub'
-});
-}
-  </script> -->
+// function initMap() {
+
+// // 위도(Latitude), 경도(Longitude)
+// const myLatLng = {
+//     lat: 37.782293,
+//     lng: -122.391240
+// };
+
+// const map = new google.maps.Map(document.getElementById('map'), {
+//     center: myLatLng,
+//     scrollwheel: false,
+//     zoom: 18
+// });
+
+// const marker = new google.maps.Marker({
+//     position: myLatLng,
+//     map: map,
+//     title: 'GitHub'
+// });
+// }
+  </script>
 </body>
 
 </html>
